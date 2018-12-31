@@ -22,7 +22,7 @@ YourProjectName
 └── src
     ├── index.html
     ├── main.js
-    ├── beeBoop.js
+    ├── TemplateJS.js
     └── styles.css
 ```
 

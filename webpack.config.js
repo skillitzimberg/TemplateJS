@@ -19,7 +19,7 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'beeBoop',
+      title: 'TemplateJS',
       template: './src/index.html',
       inject: 'body'
     })
