@@ -2,12 +2,25 @@
 
 #### By Scott Bergler
 
+## Table of contents
+
+**[Description](#description)**<br>
+**[Resources](#resources)**<br>
+**[Environment & Dependencies](#environment-dependencies)**<br>
+**[Installation Instructions](#installation-instructions)**<br>
+**[Specifications](#specifications)**<br>
+**[Known Bugs](#known-bugs)**<br>
+**[Technologies Used](#technologies-used)**<br>
+**[Acknowledgements](#acknowledgements)**<br>
+**[Additional Resources](#additional-resources)**<br>
+**[License](#license)**<br>
+
 ## Description
-This template will create the directories and basic files needed to start a web project in JavaScript. I adapted it from Sayed I. Hashimi's [article](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/). The directory structure and file contents are from Epicodus JavaScript curriculum and may not be suited for all projects.
+This template will create the directories and basic files needed to start a web project in JavaScript. I used the JSON template from Sayed I. Hashimi's [article](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/). The directory structure and file contents are from Epicodus JavaScript curriculum and may not be suited for all projects.
 
 [Here](https://github.com/dotnet/templating/wiki/Reference-for-template.json) is another good source on using dotnet and JSON to create templates.
 
-The project files generated will have starter content as outlined in the Epicodus JavaScript course. The template will give relevant namespaces and paths for your project (i.e. beeBoop will be replaced everywhere with the name you give to your project - YourProjectName).
+The project files generated will have starter content as outlined in the Epicodus JavaScript course. The template will give relevant namespaces and paths for your project (i.e. TemplateJS will be replaced everywhere with the name you give to your project - YourProjectName).
 
 The directory/file structure created is:
 
@@ -25,39 +38,213 @@ YourProjectName
     ├── TemplateJS.js
     └── styles.css
 ```
+## Resources
+[Mozilla Development Network: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[NodeJS](https://nodejs.org/en/)
+[TypeScript](http://www.typescriptlang.org/)
+[AngularJS](https://angularjs.org/)
 
-### Specifications:
-##### Spec 1: Do a thing:
-- [ ] **Expect:**  
-Input: some input;  
-Output: some output;
+## Environment & Dependencies
+These instructions are for OS X (Mac)  
+
+#### A bare list of commands:
+See below for descriptions of why and what they do.
+```
+$ brew install node
+```
+```
+$ node -v
+```
+```
+$ npm -v
+```
+```
+$ npm install typescript -g
+```
+```
+$ tsc -v
+```
+```
+$ apm install atom-typescript
+```
+```
+$ npm install -g @angular/cli@1.6.5
+```
+```
+$ ng -v
+```
+```
+$ npm install webpack@4.0.1 --save-dev
+```
+```
+$ npm install webpack-cli@2.0.9 --save-dev
+```
+
+### Install Node JS:
+This uses Homebrew:  
+
+```
+$ brew install node
+```
+#### Confirm installation:
+
+```
+$ node -v
+(should return something like: v11.6.0)
+
+$ npm -v
+(should return something like: 3.10.5)
+```
+### Install TypeScript:
+This uses Node Package Manager (npm) which was installed in the previous step:
+
+```
+$ npm install typescript -g
+```
+#### Confirm installation:
+```
+$ tsc -v
+(should return something like: Version 2.1.4)
+```
+#### Install the Atom-TypeScript package:
+
+```
+$ apm install atom-typescript
+```
+### Install Angular:
+```
+$ npm install -g @angular/cli@1.6.5
+```
+
+#### Confirm installation:
+```
+$ ng -v
+```
+You should get this in return:
+```
+    _                      _                 ____ _     ___
+   / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+  / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+ / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+/_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+               |___/
+
+Angular CLI: 1.6.5
+Node: 8.8.1
+OS: darwin x64
+Angular:
+...
+```
+
+### Starting a project from scratch:
+Create your project directory.  
+```
+cd [project directory]
+```
+
+Create a JSON manifest (a.k.a. package.json):  
+```
+npm init -y
+```
+This will create the following JSON manifest as a starting point that can be altered to suit the project's needs:
+```
+{
+  "name": "[project directory]",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+Install Webpack:
+
+```
+$ npm install webpack@4.0.1 --save-dev
+```
+```
+$ npm install webpack-cli@2.0.9 --save-dev
+```
+Webpack is a module bundler that bundles code from multiple files, libraries, and assets (dependencies) into a single source. Webpack uses a dependency graph to recursively manage an application's assets. Webpack needs an entry point to the application. We are using a file called main.js for interface logic. This file will include import statements that have formats like:
+```
+import { PeanutButter } from './peanut-butter.js'
+import { Jelly } from './jelly.js'
+import { Bread } from './bread.js'
+import '../css/styles.css'
+```
+The code from these sources would all be gathered (concatenated) into a single file with a name like bundle.js. (We will define what the name of this file will be in the next step - see output and filename portion of the module.exports section of the webpack.config.js file below.)
+
+To make this happen we'll use a webpack configuration file (webpack.config.js):
+
+```
+const path = require('path');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+To take advantage of this change the "scripts" section of the JSON manifest to use Webpack to build the project when called:
+```
+{
+  "name": "directory name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+
+Once all the files and dependencies are in place we can use the scripts in the manifest scripts using the "$ npm run" command. To use the build script added above run:
+```
+$ npm run build
+```
 
 ## Setup/Installation Requirements
-Clone the code from [GitHub](https://github.com/skillitzimberg/beeBoop).
+Clone the code from [GitHub](https://github.com/skillitzimberg/TemplateJS).
 
 While following this set up guide, replace both the brackets - [] - and the content between them with the information relevant to your situation. This is just an example guide.
 
 Install the template using the command line interface (cli)/terminal:
-* dotnet new --install [ /Users/Your/Path/Here ]/beeBoop
+* dotnet new --install [ /Users/Your/Path/Here ]/TemplateJS
 
-For example: When cloned to the Epicodus computer Desktop, the path would be /Users/Guest/Desktop/beeBoop.
+For example: When cloned to the Epicodus computer Desktop, the path would be /Users/Guest/Desktop/TemplateJS.
 The above command would then be:
-* dotnet new --install /Users/Guest/Desktop/beeBoop
+* dotnet new --install /Users/Guest/Desktop/TemplateJS
 
 Navigate to the directory that you want your project to be in (i.e. Desktop, Documents, or wherever you keep your projects).
 
 Run the this command in the cli/terminal:
-* dotnet new beeboop -n [ YourProjectName ]
+* dotnet new TemplateJS -n [ YourProjectName ]
 
 For example: If your project is called Banana the command would be:
-* dotnet new beeboop -n Banana
+* dotnet new TemplateJS -n Banana
 
 Remove .git directory: run this command in YourProjectName directory.
 * rm -rf .git
 
-Be sure to git init again for a fresh start!
+Be sure to run git init again for a fresh start!
 
 Open the directory in your text editor. Open the .template.config/template.json file and change the author name to your own. Read the article mentioned above for details on this file and how this template was created.
+
+## Specifications:
+##### Spec 1: Do a thing:
+- [ ] **Expect:**  
+Input: some input;  
+Output: some output;
 
 ## Known Bugs
 
@@ -66,7 +253,7 @@ Scott Bergler :: commandinghands@gmail.com
 
 ## Technologies Used
 
-HTML, CSS, Json, C#.
+HTML, CSS, Json, dotnet.
 
 ### License
 

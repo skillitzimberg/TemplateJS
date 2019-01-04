@@ -1,3 +1,3 @@
-export function TemplateJS() {
-
+export function TemplateJS(greeting) {
+  this.greeting = greeting;
 }
