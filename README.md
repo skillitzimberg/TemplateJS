@@ -6,7 +6,7 @@
 
 **[Description](#description)**<br>
 **[Resources](#resources)**<br>
-**[Environment & Dependencies](#environment-dependencies)**<br>
+**[Environment & Dependencies](#environment-&-dependencies)**<br>
 **[Installation Instructions](#installation-instructions)**<br>
 **[Specifications](#specifications)**<br>
 **[Known Bugs](#known-bugs)**<br>
@@ -39,10 +39,10 @@ YourProjectName
     └── styles.css
 ```
 ## Resources
-[Mozilla Development Network: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[NodeJS](https://nodejs.org/en/)
-[TypeScript](http://www.typescriptlang.org/)
-[AngularJS](https://angularjs.org/)
+[Mozilla Development Network: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
+[NodeJS](https://nodejs.org/en/)  
+[TypeScript](http://www.typescriptlang.org/)  
+[AngularJS](https://angularjs.org/)  
 
 ## Environment & Dependencies
 These instructions are for OS X (Mac)  
@@ -78,6 +78,75 @@ $ npm install webpack@4.0.1 --save-dev
 ```
 ```
 $ npm install webpack-cli@2.0.9 --save-dev
+```
+```
+$ npm install style-loader@0.20.2 --save-dev
+```
+```
+$ npm install css-loader@0.28.10 --save-dev
+```
+```
+npm install html-webpack-plugin@3.0.6 --save-dev
+```
+```
+npm install clean-webpack-plugin@0.1.18 --save-dev
+```
+```
+npm install uglifyjs-webpack-plugin@1.2.2 --save-dev
+```
+```
+npm install webpack-dev-server@3.1.0 --save-dev
+```
+```
+npm install eslint@4.18.2 --save-dev
+```
+```
+npm install eslint-loader@2.0.0 --save-dev
+```
+```
+$ npm install jquery --save
+```
+```
+$ npm install popper.js --save
+```
+```
+$ npm install bootstrap --save
+```
+```
+$ npm install jasmine-core@2.99.0 --save-dev
+```
+```
+$ npm install jasmine@3.1.0 --save-dev
+```
+```
+$ ./node_modules/.bin/jasmine init
+```
+```
+$ npm install karma@2.0.0 --save-dev
+```
+```
+$ npm install karma-jasmine@1.1.1 --save-dev
+```
+```
+$ npm install karma-chrome-launcher@2.2.0 --save-dev
+```
+```
+$ npm install -g karma-cli
+```
+```
+$ npm install karma-cli@1.0.1 --save-dev
+```
+```
+$ npm install karma-webpack@2.0.13 --save-dev
+```
+```
+$ npm install karma-jquery@0.2.2 --save-dev
+```
+```
+$ npm install karma-jasmine-html-reporter@0.2.2 --save-dev
+```
+```
+$ karma init
 ```
 
 ### Install Node JS:
@@ -161,7 +230,8 @@ This will create the following JSON manifest as a starting point that can be alt
   "license": "ISC"
 }
 ```
-Install Webpack:
+#### Bundling JS files
+Install Webpack (updates package.json).  
 
 ```
 $ npm install webpack@4.0.1 --save-dev
@@ -169,12 +239,12 @@ $ npm install webpack@4.0.1 --save-dev
 ```
 $ npm install webpack-cli@2.0.9 --save-dev
 ```
+
 Webpack is a module bundler that bundles code from multiple files, libraries, and assets (dependencies) into a single source. Webpack uses a dependency graph to recursively manage an application's assets. Webpack needs an entry point to the application. We are using a file called main.js for interface logic. This file will include import statements that have formats like:
 ```
 import { PeanutButter } from './peanut-butter.js'
 import { Jelly } from './jelly.js'
 import { Bread } from './bread.js'
-import '../css/styles.css'
 ```
 The code from these sources would all be gathered (concatenated) into a single file with a name like bundle.js. (We will define what the name of this file will be in the next step - see output and filename portion of the module.exports section of the webpack.config.js file below.)
 
@@ -191,8 +261,10 @@ module.exports = {
   }
 };
 ```
+This portion of the webpack.config.js describes what the developer wants to be done when webpack bundles files - where to find what is to be imported/exported between files, what to name the file into which other files are concatenated, and where to put that file when it's done.
 
-To take advantage of this change the "scripts" section of the JSON manifest to use Webpack to build the project when called:
+To take advantage of this, change the "scripts" section of the JSON manifest to use Webpack to build the project when called:
+
 ```
 {
   "name": "directory name",
@@ -207,12 +279,314 @@ To take advantage of this change the "scripts" section of the JSON manifest to u
   "license": "ISC"
 }
 ```
-
-Once all the files and dependencies are in place we can use the scripts in the manifest scripts using the "$ npm run" command. To use the build script added above run:
+#### Bundling CSS files
+(updates package.json)
 ```
-$ npm run build
+$ npm install style-loader@0.20.2 --save-dev
+```
+```
+$ npm install css-loader@0.28.10 --save-dev
 ```
 
+Update webpack.config.js to use these dependencies:
+
+```
+const path = require('path');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
+```
+The new 'rules' section is a set of instructions for webpack that says what type of files to look for (.css files, using regex to find them) and what loaders to use for them (style- and css-loaders).
+
+The main.js file would need to include an import statement for the .css files we want to be used:
+```
+import { PeanutButter } from './peanut-butter.js'
+import { Jelly } from './jelly.js'
+import { Bread } from './bread.js'
+import './styles.css'
+```
+#### Bundling HTML files
+Install the HtmlWebpackPlugin dependency (updates package.json):
+```
+npm install html-webpack-plugin@3.0.6 --save-dev
+```
+
+Add a require statement and plugins section to webpack.config.js:
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Something for the title of the bundled html file . . .',
+      template: './src/index.html',
+      inject: 'body'
+      })
+  ]
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
+```
+
+Install CleanWebpackPlugin:
+```
+npm install clean-webpack-plugin@0.1.18 --save-dev
+```
+Add the dependency to webpack.config.js:
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Something for the title of the bundled html file . . .',
+      template: './src/index.html',
+      inject: 'body'
+      })
+  ]
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
+```
+
+Install UglifyJsPlugin:
+```
+npm install uglifyjs-webpack-plugin@1.2.2 --save-dev
+```
+
+Add the dependency to webpack.config.js:
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Something for the title of the bundled html file . . .',
+      template: './src/index.html',
+      inject: 'body'
+      })
+  ]
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
+```
+
+Install Webpack Development Server:
+```
+npm install webpack-dev-server@3.1.0 --save-dev
+```
+Add the tool to webpack.config.js:
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist'
+  },
+  plugins: [
+    new UglifyJsPlugin({ sourceMap: true}),
+    new HtmlWebpackPlugin({
+      title: 'Something for the title of the bundled html file . . .',
+      template: './src/index.html',
+      inject: 'body'
+      })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
+```
+Add scripts to package.json to set the build mode to development, have npm run build before starting the server, and start the server:
+
+```
+{
+  "name": "directory name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development"
+    "start": "npm run build; webpack-dev-server --open --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+
+Install ES Lint linter:
+```
+npm install eslint@4.18.2 --save-dev
+```
+```
+npm install eslint-loader@2.0.0 --save-dev
+```
+
+Add the linter to webpack.config.js:
+```
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+module.exports = {
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist'
+  },
+  plugins: [
+    new UglifyJsPlugin({ sourceMap: true}),
+    new HtmlWebpackPlugin({
+      title: 'Something for the title of the bundled html file . . .',
+      template: './src/index.html',
+      inject: 'body'
+      })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
+      }
+    ]
+  }
+};
+```
+Create .eslintrc file:
+```
+{
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+  },
+
+  "extends": "eslint:recommended",
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jquery": true
+  },
+
+  "rules": {
+      "semi": 1,
+      "indent": ["warn", 2],
+      "no-console": "warn",
+      "no-debugger": "warn"
+  }
+}
+```
+Add a 'lint' script to package.json:
+```
+{
+  "name": "directory name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development"
+    "start": "npm run build; webpack-dev-server --open --mode development"
+    "lint": "eslint src/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
 ## Setup/Installation Requirements
 Clone the code from [GitHub](https://github.com/skillitzimberg/TemplateJS).
 
@@ -221,7 +595,8 @@ While following this set up guide, replace both the brackets - [] - and the cont
 Install the template using the command line interface (cli)/terminal:
 * dotnet new --install [ /Users/Your/Path/Here ]/TemplateJS
 
-For example: When cloned to the Epicodus computer Desktop, the path would be /Users/Guest/Desktop/TemplateJS.
+For example: When cloned to the Epicodus computer Desktop, the path would be /Users/Guest/Desktop/TemplateJS.  
+
 The above command would then be:
 * dotnet new --install /Users/Guest/Desktop/TemplateJS
 
