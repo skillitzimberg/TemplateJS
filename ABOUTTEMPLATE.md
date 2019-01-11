@@ -181,6 +181,15 @@ $ npm install karma-jasmine-html-reporter@0.2.2 --save-dev
 ```
 $ karma init
 ```
+```
+npm install babel-core@6.26.0 --save-dev
+```
+```
+npm install babel-loader@7.1.3 --save-dev
+```
+```
+npm install babel-preset-es2015@6.24.1 --save-dev
+```
 
 ### Install Node JS:
 This uses Homebrew:  
