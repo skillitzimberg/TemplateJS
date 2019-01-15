@@ -21,7 +21,7 @@
 Clone the code from [GitHub](https://github.com/skillitzimberg/TemplateJS).
 
 ## Resources
-[ABOUTTEMPLATEJS](./ABOUTTEMPLATE.md)  
+[ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md)  
 
 ## Planning
 

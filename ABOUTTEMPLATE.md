@@ -35,7 +35,7 @@ YourProjectName
 └── src
     ├── index.html
     ├── main.js
-    ├── TemplateJS.js
+    ├── testclass.js
     └── styles.css
 ```
 ## Using TemplateJS
@@ -45,23 +45,23 @@ While following this set up guide, replace both the brackets - [] - and the cont
 
 Install the template using the command line interface (cli)/terminal:
 ```
-dotnet new --install [ /Users/Your/Path/Here ]/TemplateJS
+dotnet new --install [ /Users/Your/Path/Here ]/Template_JS
 ```
 For example: When cloned to the Epicodus computer Desktop, the path would be /Users/Guest/Desktop/TemplateJS.  
 
 The above command would then be:
 ```
-dotnet new --install /Users/Guest/Desktop/TemplateJS
+dotnet new --install /Users/Guest/Desktop/Template_JS
 ```
 Navigate to the directory that you want your project to be in (i.e. Desktop, Documents, or wherever you keep your projects).
 
 Run the this command in the cli/terminal:
 ```
-dotnet new TemplateJS -n [ YourProjectName ]
+dotnet new Template_JS -n [ YourProjectName ]
 ```
 For example: If your project is called Banana the command would be:
 ```
-dotnet new TemplateJS -n Banana
+dotnet new Template_JS -n Banana
 ```
 Remove .git directory: run this command in YourProjectName directory.
 ```

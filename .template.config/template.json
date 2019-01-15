@@ -5,11 +5,11 @@
 "author": "Scott Bergler",
 "classifications": [ "Web" ],
 "name": "Template JavaScript Project",
-"identity": "TemplateJS",
-"shortName": "TemplateJS",
+"identity": "Template_JS",
+"shortName": "Template_JS",
 "tags": {
     "language": "JavaScript"
 },
-"sourceName": "TemplateJS",
+"sourceName": "Template_JS",
 "preferNameDirectory" : "true"
 }
