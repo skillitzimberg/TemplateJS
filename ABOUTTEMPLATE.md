@@ -190,6 +190,9 @@ npm install babel-loader@7.1.3 --save-dev
 ```
 npm install babel-preset-es2015@6.24.1 --save-dev
 ```
+```
+npm install dotenv-webpack --save-dev
+```
 
 ### Install Node JS:
 This uses Homebrew:  
@@ -628,6 +631,32 @@ Add a 'lint' script to package.json:
   "author": "",
   "license": "ISC"
 }
+```
+
+#### Environmental Variables
+Add the dotenv-webpack plugin:
+```
+npm install dotenv-webpack --save-dev
+```
+Update webpack.config.js:
+```
+...
+const Dotenv = require('dotenv-webpack');
+
+module.exports = {
+  ...
+  plugins: [
+    ...
+    new Dotenv()
+  ],
+  ...
+  }
+};
+```
+
+To access environmental variables, preface the environmental variable with 'process.env,' . . .
+```
+process.env.API_KEY
 ```
 ## Known Bugs
 
