@@ -1,4 +1,4 @@
-# TemplateJS
+# Template_JS
 
 #### By Scott Bergler
 
@@ -18,7 +18,7 @@
 
 
 ## Setup/Installation
-Clone the code from [GitHub](https://github.com/skillitzimberg/TemplateJS).
+Clone the code from [GitHub](https://github.com/skillitzimberg/Template_JS).
 
 ## Resources
 [ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md)  

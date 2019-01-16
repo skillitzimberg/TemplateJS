@@ -1,6 +1,6 @@
 class TestClass {
   constructor() {
-    this.message = 'TemplateJS is working.'
+    this.message = 'Template_JS is working.'
   }
 
   getMessage() {

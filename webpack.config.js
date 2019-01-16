@@ -20,7 +20,7 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'TemplateJS',
+      title: 'Template_JS',
       template: './src/index.html',
       inject: 'body'
     }),
