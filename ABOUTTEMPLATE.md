@@ -1,4 +1,4 @@
-# JavaScript with Node JS Template
+# A JavaScript Project Template
 
 #### By Scott Bergler
 
@@ -16,7 +16,7 @@
 **[License](#license)**<br>
 
 ## Description
-This template was created using TemplateJS. This template creates the directories and basic files needed to start a web project in JavaScript. I used the JSON template from Sayed I. Hashimi's [article](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/). The directory structure and file contents are from Epicodus JavaScript curriculum and may not be suited for all projects.
+This template creates the directories and basic files needed to start a web project in JavaScript. I used the JSON template from Sayed I. Hashimi's [article](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/). The directory structure and file contents are from Epicodus JavaScript curriculum and may not be suited for all projects.
 
 [Here](https://github.com/dotnet/templating/wiki/Reference-for-template.json) is another good source on using dotnet and JSON to create templates.
 
