@@ -20,7 +20,7 @@
 Clone the code from [GitHub](https://github.com/skillitzimberg/Template_JS).
 
 ## Resources
-[ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md)  
+[ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md): A run-down on what this template includes, why it's included, and how to use it.
 
 ## Planning
 
