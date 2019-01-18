@@ -7,8 +7,7 @@
 **[Description](#description)**<br>
 **[Resources](#resources)**<br>
 **[Planning](#planning)**<br>
-**[Installation Instructions](#setup/installation)**<br>
-**[Specifications](#specifications)**<br>
+**[Installation Instructions](#setup-and-installation)**<br>
 **[Known Bugs](#known-bugs)**<br>
 **[Support](#support-and-contact-details)**<br>
 **[Technologies Used](#technologies-used)**<br>
@@ -17,7 +16,7 @@
 ## Description
 
 
-## Setup/Installation
+## Setup and Installation
 Clone the code from [GitHub](https://github.com/skillitzimberg/Template_JS).
 
 ## Resources
