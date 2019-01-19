@@ -1,10 +1,7 @@
-# Template_JS
-
-### Author
-Scott Bergler
+# [Template_JS](./ABOUTTEMPLATE.md)
+This is a template README. See [ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md) for details.
 
 ## Table of contents
-
 **[Description](#description)**<br>
 **[Resources](#resources)**<br>
 **[Planning](#planning)**<br>
@@ -14,13 +11,15 @@ Scott Bergler
 **[Technologies Used](#technologies-used)**<br>
 **[License](#license)**<br>
 
+### Author
+
 ## Description
 
 ## Setup and Installation
-Clone the code from [GitHub](https://github.com/skillitzimberg/Template_JS).
+See [ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md).
 
 ## Resources
-[ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md): This project was instantiated using a template. ABOUTTEMPLATE is a run-down on what this template includes, why it's included, and how to use it.
+[ABOUT TEMPLATE JS](./ABOUTTEMPLATE.md): This project was instantiated using a template created by Scott Bergler. ABOUTTEMPLATE is a run-down on what this template includes, why it's included, and how to use it.
 
 [PROJECT PLANNING](./PLANNING.md): Outlines planning criteria, use cases, specifications, notes, and errata.
 
