@@ -30,7 +30,9 @@ Clone the code from [GitHub](https://github.com/skillitzimberg/Template_JS).
 Scott Bergler :: commandinghands@gmail.com
 
 ## Technologies Used
-(This wonderful table was pilfered from [Tanvi Garg](https://github.com/TanviCodeLife) and modestly edited for my own sensibilities.)  
+(This wonderful table was pilfered from [Tanvi Garg](https://github.com/TanviCodeLife) and modestly edited for my own sensibilities.)
+
+For versions and a full list of dependencies, plugins, and scripts see the "devDependencies" section in [package.json](./package.json).  
 
 | Dependency | Description |
 | --- | --- |
@@ -58,8 +60,6 @@ Scott Bergler :: commandinghands@gmail.com
 | webpack-cli | Use webpack from command line |
 | webpack-dev-server | Provides live reloading during development |
 | css-loader and style-loader | renders images in DOM when `<img>` tag is used |
-
-For versions and a full list of dependencies, plugins, and scripts see "devDependencies" in [package.json](./package.json).
 
 ## License
 Licensed under the MIT license.
