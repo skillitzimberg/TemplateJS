@@ -14,6 +14,7 @@
 **[Acknowledgements](#acknowledgements)**<br>
 **[Additional Resources](#additional-resources)**<br>
 **[License](#license)**<br>
+**[Copyright](#copyright)**<br>
 
 ## Description
 This template creates the directories and basic files needed to start a web project in JavaScript. I used the JSON template from Sayed I. Hashimi's [article](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/). The directory structure and file contents are from Epicodus JavaScript curriculum and may not be suited for all projects.
@@ -704,8 +705,8 @@ For versions and a full list of dependencies, plugins, and scripts see the "devD
 | webpack-dev-server | Provides live reloading during development |
 | css-loader and style-loader | renders images in DOM when `<img>` tag is used |
 
-### License
-
+## License
 Licensed under the MIT license.
 
+## Copyright
 Copyright (c) 2019 ** Scott Bergler **
