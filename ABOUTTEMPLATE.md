@@ -30,13 +30,22 @@ YourProjectName
 ├── .eslintrc
 ├── package.json
 ├── webpack.config.js
+├── karma.config.js
 ├── README.md
+├── PLANNING.md
+├── ABOUTTEMPLATE.md
 │
-└── src
-    ├── index.html
-    ├── main.js
-    ├── testclass.js
-    └── styles.css
+├── src
+│   ├── index.html
+│   ├── main.js
+│   ├── testclass.js
+│   └── styles.css
+│
+└── spec
+    ├── testclass-spec.js
+    │
+    └── support
+        └── jasmine.json
 ```
 ## Using TemplateJS
 Clone the code from [GitHub](https://github.com/skillitzimberg/TemplateJS).
