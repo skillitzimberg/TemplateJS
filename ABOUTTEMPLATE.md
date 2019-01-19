@@ -1,18 +1,16 @@
 # A JavaScript Project Template
 
-#### By Scott Bergler
+### Author
+Scott Bergler
 
 ## Table of contents
-
 **[Description](#description)**<br>
 **[Using This Template](#using-this-template)**<br>
 **[Resources](#resources)**<br>
 **[Environment & Dependencies](#environment-&-dependencies)**<br>
-**[Specifications](#specifications)**<br>
 **[Known Bugs](#known-bugs)**<br>
 **[Technologies Used](#technologies-used)**<br>
-**[Acknowledgements](#acknowledgements)**<br>
-**[Additional Resources](#additional-resources)**<br>
+**[Support](#support)**<br>
 **[License](#license)**<br>
 **[Copyright](#copyright)**<br>
 
@@ -48,7 +46,7 @@ YourProjectName
     └── support
         └── jasmine.json
 ```
-## Using TemplateJS
+## Using This Template
 Clone the code from [GitHub](https://github.com/skillitzimberg/TemplateJS).
 
 While following this set up guide, replace both the brackets - [] - and the content between them with the information relevant to your situation. This is just an example guide.
@@ -670,9 +668,6 @@ process.env.API_KEY
 ```
 ## Known Bugs
 
-## Support and contact details
-Scott Bergler :: commandinghands@gmail.com
-
 ## Technologies Used
 (This wonderful table was pilfered from [Tanvi Garg](https://github.com/TanviCodeLife) and modestly edited for my own sensibilities.)
 
@@ -704,6 +699,9 @@ For versions and a full list of dependencies, plugins, and scripts see the "devD
 | webpack-cli | Use webpack from command line |
 | webpack-dev-server | Provides live reloading during development |
 | css-loader and style-loader | renders images in DOM when `<img>` tag is used |
+
+## Support
+Scott Bergler :: commandinghands@gmail.com
 
 ## License
 Licensed under the MIT license.
